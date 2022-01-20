@@ -36,11 +36,16 @@ export default function ContentQuestion(props) {
         //
     }, [refWrapper, refHidden])
     //
-    return <div ref={refWrapper} className='w-3/4 mx-auto my-10 flex flex-1 relative'>
+    return <div ref={refWrapper} className='xl:w-3/4 w-11/12 md:w-3/4 lg:w-2/3 mx-auto my-10 flex flex-1 relative'>
         <button ref={refButton} className='hidden' onClick={() => {
-            speak({ text: current.name ? current.name : current.answer });
+            let voices = speechSynthesis.getVoices();
+            speak(voices.length > 0 ? {
+                text: current.name ? current.name : current.answer, voice: voices[Math.random() * voices.length]
+            } : {
+                text: current.name
+            });
         }}></button>
-        <div className='w-7/12 mx-auto'>
+        <div className='w-full px-2 md:w-4/5 xl:w-7/12 mx-auto'>
             <p className='w-full text-3xl font-bold'>{current.type === "speak" ? 'Viết lại bằng Tiếng Việt' :
                 'Viết lại bằng Tiếng Anh'}</p>
             <div className='w-full flex items-center justify-start border-b-2 border-solid border-gray-200'>
@@ -49,7 +54,12 @@ export default function ContentQuestion(props) {
                     {current.name ? <>
                         {current.type === "speak" &&
                             <span onClick={() => {
-                                speak({ text: current.name });
+                                let voices = speechSynthesis.getVoices();
+                                speak(voices.length > 0 ? {
+                                    text: current.name, voice: voices[Math.random() * voices.length]
+                                } : {
+                                    text: current.name
+                                });
                             }} className='bx bx-volume-full text-blue-500 mr-5 text-3xl cursor-pointer'></span>}
                         <div className={`border-2 relative arrow_left border-gray-300 border-solid rounded-3xl px-6 py-4`}>
                             {current.name}
@@ -57,13 +67,23 @@ export default function ContentQuestion(props) {
                     </>
                         : <>
                             <span onClick={() => {
-                                speak({ text: current.answer });
+                                let voices = speechSynthesis.getVoices();
+                                speak(voices.length > 0 ? {
+                                    text: current.answer, voice: voices[Math.random() * voices.length]
+                                } : {
+                                    text: current.answer
+                                });
                             }} className='bx bx-volume-full text-white mr-5 text-5xl cursor-pointer w-16 h-16 rounded-xl 
                         bg-blue-400 flex items-center justify-center'></span>
                             <span onClick={async () => {
                                 let arr = current.answer.split(" ");
                                 for (let index = 0; index < arr.length; index++) {
-                                    speak({ text: arr[index] })
+                                    let voices = speechSynthesis.getVoices();
+                                    speak(voices.length > 0 ? {
+                                        text: arr[index], voice: voices[Math.random() * voices.length]
+                                    } : {
+                                        text: arr[index]
+                                    });
                                 }
                             }} className='bx bxs-hand text-white mr-5 text-2xl cursor-pointer w-11 h-11 rounded-xl 
                         bg-blue-400 flex items-center justify-center'></span>

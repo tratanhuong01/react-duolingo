@@ -11,7 +11,7 @@ export default function Start() {
     //
     return <div className='w-full h-full flex flex-col'>
         <div className='w-full flex-1 flex items-center'>
-            <div className='flex items-center mx-auto' style={{ width: "45%" }}>
+            <div className='flex items-center mx-auto flex-col lg:flex-row xl:w-5/12 w-11/12 md:w-4/5 lg:w-1/2'>
                 <img src={main} alt='' className='w-56 object-cover' />
                 <div className='ml-6'>
                     <p className='text-2xl font-bold mb-2'>Học tiếng anh với A Hưởng Dev!</p>

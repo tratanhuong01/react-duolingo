@@ -13,8 +13,14 @@ export default function ItemResult(props) {
             dispatch(actions.updateData('choose', [...choose].filter(dt => dt.id !== item.id)));
         }
         else {
-            if (current.type !== "speak" && !value)
-                speak({ text: item.value })
+            if (current.type !== "speak" && !value) {
+                let voices = speechSynthesis.getVoices();
+                speak(voices.length > 0 ? {
+                    text: item.value, voice: voices[Math.random() * voices.length]
+                } : {
+                    text: item.value
+                });
+            }
             const index = [...choose].findIndex(dt => dt.id === item.id);
             if (index === -1)
                 dispatch(actions.updateData('choose', [...choose, item]));
@@ -22,5 +28,5 @@ export default function ItemResult(props) {
     }} className={`py-2.5 rounded-2xl px-5 border-gray-200 border-solid border-2 cursor-pointer ${value ? '' :
         hide ? 'bg-gray-200' : ''}`}>
         <span className={`${hide ? 'invisible' : ''}`}>{item.value}</span>
-    </div>;
+    </div >;
 }

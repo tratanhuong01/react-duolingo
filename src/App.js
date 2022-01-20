@@ -10,7 +10,7 @@ function App() {
   return (
     <QuestionProvider>
       <Router>
-        <div className="w-full h-screen ">
+        <div className="w-full h-screen overflow-y-auto">
           <Routes>
             {routes.map((route, index) => {
               return (

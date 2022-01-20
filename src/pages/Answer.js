@@ -21,7 +21,7 @@ export default function Answer() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [index, start])
     //
-    return <div className="w-full flex flex-col h-full overflow-x-hidden overflow-y-hidden">
+    return <div className="w-full flex flex-col h-full overflow-x-hidden overflow-y-auto">
         {start && <>
             <StateListQuestion index={index} length={list.length} />
             {current && <ContentQuestion />}
