@@ -29,16 +29,17 @@ export default function StatusQuestion(props) {
             </ul>
         </div>
         <button onClick={() => {
-            dispatch(actions.updateData('status', null));
-            if (list.length <= index + 1)
-                dispatch(actions.updateData('index', 0));
-            else
+            if (list.length <= index + 1) {
+                dispatch(actions.updateData('completed', true));
+            }
+            else {
+                dispatch(actions.updateData('status', null));
                 dispatch(actions.updateData('index', index + 1));
-            dispatch(actions.updateData('choose', []));
-            dispatch(actions.updateData('correct', []));
+                dispatch(actions.updateData('choose', []));
+            }
         }} className={`px-6 py-3 font-bold border-2 border-gray-200 text-white font-bold rounded-xl 
         ${status ? 'bg-green-500' : 'bg-red-500'} absolute top-1/2 right-5 transform -translate-y-1/2`}>
-            {list.length > index + 1 ? 'Tiếp tục' : 'Học lại'}
+            {list.length > index + 1 ? 'Tiếp tục' : 'Kết thúc'}
         </button>
     </div >;
 }

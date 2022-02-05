@@ -3,6 +3,7 @@ import { useSpeechSynthesis } from 'react-speech-kit';
 import person_1 from "../../assets/images/person_1.png";
 import { QuestionContext } from '../../contexts/QuestionContext/QuestionContext';
 import ItemResult from '../ItemResult/ItemResult';
+import TimeCount from '../TimeCount/TimeCount';
 
 export default function ContentQuestion(props) {
     //
@@ -25,7 +26,7 @@ export default function ContentQuestion(props) {
                 refButton.current.click();
             }
         }
-        //
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [current]);
     useEffect(() => {
         //
@@ -33,7 +34,7 @@ export default function ContentQuestion(props) {
             refHidden.current.style.width = refWrapper.current.offsetWidth + "px";
             refHidden.current.style.height = refWrapper.current.offsetHeight + "px";
         }
-        //
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refWrapper, refHidden])
     //
     return <div ref={refWrapper} className='xl:w-3/4 w-11/12 md:w-3/4 lg:w-2/3 mx-auto my-10 flex flex-1 relative'>
@@ -45,8 +46,9 @@ export default function ContentQuestion(props) {
                 text: current.name
             });
         }}></button>
-        <div className='w-full px-2 md:w-4/5 xl:w-7/12 mx-auto'>
-            <p className='w-full text-3xl font-bold'>{current.type === "speak" ? 'Viết lại bằng Tiếng Việt' :
+        <div className='w-full px-2 md:w-4/5 xl:w-7/12 mx-auto relative'>
+            <TimeCount />
+            <p className='w-full text-3xl font-bold'>{current.type === "speak" && current.name ? 'Viết lại bằng Tiếng Việt' :
                 'Viết lại bằng Tiếng Anh'}</p>
             <div className='w-full flex items-center justify-start border-b-2 border-solid border-gray-200'>
                 <img alt='' src={person_1} className='mr-5 w-32 object-contain' />

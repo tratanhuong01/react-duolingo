@@ -6,7 +6,7 @@ export default function StateListQuestion(props) {
     const { index, length } = props;
     const { dispatch, actions } = useContext(QuestionContext);
     //
-    return <div className='w-3/4 mx-auto flex items-start pt-12 pb-5'>
+    return <div className='w-3/4 mx-auto flex items-start pt-6 pb-5'>
         <div className='w-full flex items-center'>
             <div onClick={() => {
                 dispatch(actions.updateData('start', false));

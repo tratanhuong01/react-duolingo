@@ -11,6 +11,7 @@ const initialState = {
     choose: [],
     status: null,
     correct: [],
+    completed: false,
 };
 
 export const QuestionContext = createContext();
