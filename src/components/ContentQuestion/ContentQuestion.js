@@ -76,7 +76,7 @@ export default function ContentQuestion(props) {
                                     text: current.answer
                                 });
                             }} className='bx bx-volume-full text-white mr-5 text-5xl cursor-pointer w-16 h-16 rounded-xl 
-                        bg-blue-400 flex items-center justify-center'></span>
+                             bg-blue-400 flex items-center justify-center'></span>
                             <span onClick={async () => {
                                 let arr = current.answer.split(" ");
                                 for (let index = 0; index < arr.length; index++) {

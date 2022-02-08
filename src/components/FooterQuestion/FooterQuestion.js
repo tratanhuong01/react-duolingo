@@ -11,7 +11,7 @@ export default function FooterQuestion(props) {
     //
     return <div className={`border-b-2 border-solid border-gray-200 w-full flex items-center justify-center h-40 
         ${status === true ? 'bg-green-100' : status === null ? '' : 'bg-red-100'}`}>
-        <div className='w-full xl:w-3/4 flex justify-between items-center'>
+        <div className='w-full xl:w-3/4 px-3 flex justify-between items-center'>
             {status === true ? <StatusQuestion /> :
                 status === null ? <>
                     <button onClick={() => {

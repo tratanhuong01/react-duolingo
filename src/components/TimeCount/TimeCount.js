@@ -39,7 +39,7 @@ export default function TimeCount() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count, completed])
     //
-    return <div className='absolute top-2 text-5xl font-bold right-2 z-50'>
+    return <div className='absolute top-9 md:top-2 text-5xl font-bold right-2 z-50'>
         {`${Math.floor(count / 60) < 10 ? `0${Math.floor(count / 60)}` :
             Math.floor(count / 60)}:${(count % 60) < 10 ?
                 `0${count % 60}` : count % 60}`}
