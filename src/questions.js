@@ -1,15 +1,6 @@
 
 const questions = [
     {
-        id: -1,
-        type: 'speak',
-        name: 'Milk, please!',
-        line: 2,
-        options: [{ id: 0, value: "sữa" }, { id: 1, value: "Vui" }, { id: 2, value: "Vâng" }, { id: 3, value: "phê" },
-        { id: 4, value: "Duo" }, { id: 5, value: "Xin" }, { id: 6, value: "lòng" }, { id: 7, value: "cho" }],
-        answer: "Vui lòng cho sữa"
-    },
-    {
         id: 0,
         type: 'read',
         name: 'Cảm ơn!',
@@ -73,6 +64,15 @@ const questions = [
         { id: 4, value: "đô" }, { id: 5, value: "cô" }, { id: 6, value: "không" }, { id: 7, value: "quan" },
         { id: 8, value: "đen" }, { id: 9, value: "bốn" }, { id: 10, value: "biết" }, { id: 11, value: "tên" }],
         answer: "Bạn có biết tên của cô ấy không"
+    },
+    {
+        id: 7,
+        type: 'speak',
+        name: 'I am student',
+        line: 2,
+        options: [{ id: 0, value: "là" }, { id: 1, value: "Bạn" }, { id: 2, value: "Tôi" }, { id: 3, value: "nhân" },
+        { id: 4, value: "sinh" }, { id: 5, value: "bài" }, { id: 6, value: "học" }],
+        answer: "Tôi là học sinh"
     },
 ];
 
